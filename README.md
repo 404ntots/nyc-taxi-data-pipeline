@@ -4,6 +4,8 @@
 This project analyzes NYC taxi trip data to uncover patterns in trip demand, temporal trends, geographic hotspots, and tipping behavior.
 
 ---
+## Dataset is not included due to size
+
 
 ## 📊 Dataset
 - Source: NYC Taxi Trip Data
