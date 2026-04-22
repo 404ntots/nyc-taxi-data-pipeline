@@ -212,5 +212,5 @@ Detailed exploratory analysis is available in docs/eda.pdf.
 ---
 
 ## 👤 Author
-Shengqian Huang
+Shengqiang Huang
 UCLA Data Theory
