@@ -1,3 +1,7 @@
+![Result](outputs/figures/fare_by_hour.png)
+
+---
+
 # NYC Taxi Data Pipeline & Analysis
 
 ## 📌 Objective
