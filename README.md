@@ -5,9 +5,8 @@
 # NYC Taxi Data Pipeline & Analysis
 
 ## 📌 Objective
-This project analyzes NYC taxi trip data to uncover patterns in trip demand, temporal trends, geographic hotspots, and tipping behavior.
-
-In addition, a reproducible data pipeline was built to clean, transform, and analyze the dataset.
+This project builds a reproducible data pipeline to clean, transform, and analyze NYC taxi trip data, 
+combining data engineering and data analysis to extract actionable insights.
 
 ---
 
@@ -174,6 +173,8 @@ This significantly improved statistical stability and removed unrealistic record
 From the project root directory:
 
 ```bash
+pip install -r requirements.txt
+
 python3 scripts/clean_data.py
 python3 scripts/transform.py
 python3 scripts/analysis.py
