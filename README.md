@@ -91,7 +91,7 @@ Raw Data → Cleaning → Transformation → Analysis → Visualization
 
 ---
 
-## 🧮 SQL Analysis (Added for scalability)
+## 🧮 SQL Analysis
 
 ```sql
 SELECT 
