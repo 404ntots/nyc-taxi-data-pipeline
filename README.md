@@ -100,6 +100,7 @@ SELECT
 FROM trips
 GROUP BY hour
 ORDER BY trip_count DESC;
+```
 
 ---
 
