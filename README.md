@@ -2,26 +2,30 @@
 
 ---
 
-# NYC Taxi Data Pipeline & Analysis
+# 🚕 NYC Taxi Demand Analysis & Driver Allocation Optimization
 
-## 📌 Objective
-This project builds a reproducible data pipeline to clean, transform, and analyze NYC taxi trip data, 
-combining data engineering and data analysis to extract actionable insights.
+## 📌 Project Overview
+This project analyzes NYC taxi trip data to uncover demand patterns, identify inefficiencies in driver allocation, and provide actionable insights to improve operational performance.
+
+A reproducible data pipeline was built to clean, transform, and analyze the dataset, simulating a real-world data workflow.
+
+---
+
+## 🎯 Business Problem
+How can taxi companies better align driver supply with passenger demand to reduce idle time and maximize revenue?
 
 ---
 
 ## 📂 Dataset
-Dataset is not included due to size.
-
-- Source: NYC Taxi Trip Data
-- Size: ~83,000 trips
+- Source: NYC Taxi Trip Data  
+- Size: ~83,000 trips  
 - Features:
-  - Trip distance
-  - Fare amount
-  - Pickup & dropoff time
-  - Location IDs
-  - Payment type
-  - Tip amount
+  - Trip distance  
+  - Fare amount  
+  - Pickup & dropoff timestamps  
+  - Location IDs  
+  - Payment type  
+  - Tip amount  
 
 ---
 
@@ -52,35 +56,50 @@ nyc-taxi-project/
 
 Raw Data → Cleaning → Transformation → Analysis → Visualization  
 
-### 1. Data Cleaning (`clean_data.py`)
-- Removes missing values in key columns  
-- Converts numeric fields safely  
-- Filters invalid values:
+---
+
+### 🧹 1. Data Cleaning (`clean_data.py`)
+- Removed missing and invalid records  
+- Filtered unrealistic values:
   - trip_distance > 0  
   - fare_amount > 0  
-- Removes outliers:
+- Removed outliers:
   - trip_distance ≤ 100  
   - fare_amount ≤ 500  
 
+👉 Result: Improved data reliability and reduced noise for analysis  
+
 ---
 
-### 2. Data Transformation (`transform.py`)
-- Parses datetime fields  
-- Extracts:
+### 🔧 2. Data Transformation (`transform.py`)
+- Parsed datetime fields  
+- Extracted features:
   - pickup_hour  
-- Computes:
   - trip_duration (minutes)  
-- Filters unrealistic trips:
+- Filtered unrealistic trips:
   - duration > 0  
   - duration ≤ 300  
 
+👉 Result: Created structured features for time-based analysis  
+
 ---
 
-### 3. Analysis & Visualization (`analysis.py`)
-- Groups data by pickup_hour  
-- Computes average fare  
-- Generates visualization:
-  - outputs/figures/fare_by_hour.png  
+### 📊 3. Analysis & Visualization (`analysis.py`)
+- Aggregated demand by hour  
+- Computed average fare trends  
+- Generated visualizations for insight communication  
+
+---
+
+## 🧮 SQL Analysis (Added for scalability)
+
+```sql
+SELECT 
+    EXTRACT(HOUR FROM pickup_datetime) AS hour,
+    COUNT(*) AS trip_count
+FROM trips
+GROUP BY hour
+ORDER BY trip_count DESC;
 
 ---
 
@@ -101,70 +120,57 @@ This significantly improved statistical stability and removed unrealistic record
 
 ---
 
-## 📈 Key Analyses
+## 📈 Key Analyses & Insights
 
-### 1. Trips by Hour
-- Peak demand at **11 AM (~5,769 trips)**
-- Demand rises after 6 AM and declines after 8 PM  
+### 1️⃣ Peak Demand Analysis
+- Demand increases after 6 AM
+- Peak demand observed around late morning and early afternoon
+### 👉 Insight: Driver supply should increase during daytime hours to meet demand
 
-👉 Insight: Strong mid-morning and daytime demand driven by commuting and business activity.
+### 2️⃣ Weekly Demand Trends
+- Highest demand on Friday
+- Lowest demand on Sunday
+### 👉 Insight: Demand is strongly tied to workweek patterns
 
----
+### 3️⃣ Geographic Concentration
+- Trips are concentrated in a few key zones
+### 👉 Insight: Indicates inefficient driver distribution across regions
 
-### 2. Trips by Weekday
-- Highest demand on **Friday (~14,292 trips)**
-- Lowest demand on Sunday  
+### 4️⃣ Payment Behavior
+- Credit card: ~58%
+- Cash: ~42%
+### 👉 Insight: Digital payment dominates → opportunity for targeted promotions
 
-👉 Insight: Taxi usage increases toward the end of the workweek.
+### 5️⃣ Tip Behavior
+- Majority of tips between 10%–30%
+- Many zero-tip cases
+### 👉 Insight: Tipping patterns are consistent but vary by trip context
 
----
+### 6️⃣ Fare vs Distance
+- Strong positive correlation
+- Increased variance for longer trips
+### 👉 Insight: Pricing influenced by both distance and external factors (traffic, surcharges)
 
-### 3. Geographic Distribution
-- Trips are highly concentrated in a few pickup and dropoff zones  
-
-👉 Insight: Indicates strong urban hubs and travel corridors.
-
----
-
-### 4. Payment Type Distribution
-- Credit card: ~58%  
-- Cash: ~42%  
-- Others: <1%  
-
-👉 Insight: Digital payments dominate taxi transactions.
-
----
-
-### 5. Tip Behavior (Credit Card Only)
-- Most tips fall between **10%–30%**
-- Peak around **15%–25%**
-- Many zero-tip cases exist  
-
-👉 Insight: Tipping follows consistent social norms.
-
----
-
-### 6. Fare vs Distance
-- Strong positive correlation  
-- Higher variance for longer trips  
-
-👉 Insight: Pricing is distance-based but influenced by traffic and surcharges.
-
----
-
-### 7. Heatmap (Weekday × Hour)
-- Peak demand during weekday daytime hours  
-- Friday consistently high, Sunday lowest  
-
-👉 Insight: Demand depends on both time and weekday simultaneously.
+### 7️⃣ Temporal Heatmap
+- Peak demand during weekday daytime
+- Friday consistently high
+### 👉 Insight: Demand is a function of both time and weekday
 
 ---
 
 ## 🧠 Key Takeaways
-- Demand peaks during mid-morning and weekdays  
-- Taxi usage is geographically concentrated  
-- Payment behavior is dominated by credit cards  
-- Tipping follows predictable patterns  
+- 🚕 Demand is highly time-dependent (peak hours)
+- 📍 Geographic imbalance suggests inefficient driver allocation
+- 💳 Payment behavior indicates shift toward digital transactions
+- 📊 Data-driven strategies can improve revenue and efficiency
+
+---
+
+## 🚀 Business Recommendations
+- Implement dynamic driver allocation during peak hours
+- Redistribute drivers to high-demand zones
+- Introduce surge pricing strategies during high-demand periods
+- Use historical data to build predictive demand models
 
 ---
 
@@ -188,6 +194,7 @@ Pandas
 NumPy
 Matplotlib
 Seaborn
+SQL
 
 ---
 
