@@ -53,7 +53,7 @@ Raw Data → Cleaning → Transformation → Analysis → Visualization → Dash
   - distance ≤ 100 miles
   - fare ≤ $500
 
-👉 Ensures high data reliability before analysis :contentReference[oaicite:4]{index=4}  
+👉 Ensures high data reliability before analysis
 
 ---
 
@@ -66,7 +66,7 @@ Raw Data → Cleaning → Transformation → Analysis → Visualization → Dash
   - trip_duration (minutes)
 - Filtered unrealistic durations (≤ 300 min)
 
-👉 Enables time-based demand analysis :contentReference[oaicite:5]{index=5}  
+👉 Enables time-based demand analysis 
 
 ---
 
@@ -78,9 +78,7 @@ Core computations include:
 - Fare patterns (`fare_by_hour`)
 - Payment behavior (`tip_by_payment`)
 - Geographic demand concentration
-
-👉 Code: :contentReference[oaicite:6]{index=6}  
-
+ 
 ---
 
 ## 📈 Key Insights
@@ -103,7 +101,7 @@ Core computations include:
 ---
 
 ### 3️⃣ Geographic Concentration
-- Top zones (e.g., 74, 75) dominate trips :contentReference[oaicite:7]{index=7}  
+- Top zones (e.g., 74, 75) dominate trips 
 
 👉 **Insight:** Strong imbalance in spatial demand → inefficient driver distribution
 
