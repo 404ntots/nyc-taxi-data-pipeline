@@ -48,35 +48,30 @@ How can taxi companies optimize driver allocation to:
 
 ## 📊 Key Metrics
 - Total trips analyzed: ~79,000 (after cleaning)
-- Peak demand hour: **11 AM (~5769 trips)** :contentReference[oaicite:0]{index=0}  
-- Busiest weekday: **Friday (~14,292 trips)** :contentReference[oaicite:1]{index=1}  
-- Credit card usage: **~58% of trips** :contentReference[oaicite:2]{index=2}  
-- Typical tip range: **10%–30%** :contentReference[oaicite:3]{index=3}  
+- Peak demand hour: **11 AM (~5769 trips)**
+- Busiest weekday: **Friday (~14,292 trips)** 
+- Credit card usage: **~58% of trips** 
+- Typical tip range: **10%–30%**
 
 ---
 
 ## ⚙️ Project Structure
 
+```bash
 nyc-taxi-project/
 ├── data/
 ├── docs/
 ├── outputs/
-│ └── figures/
 ├── scripts/
-│ ├── clean_data.py
-│ ├── transform.py
-│ └── analysis.py
 ├── dashboard/
 ├── README.md
 └── requirements.txt
+```
 ---
 
 ## 🔄 Data Pipeline
 
 Raw Data → Cleaning → Transformation → Analysis → Visualization → Dashboard
-
----
-
 
 ---
 
@@ -179,7 +174,8 @@ An interactive dashboard was built to explore:
 - Payment behavior  
 - Geographic hotspots  
 
-📄 Preview: :contentReference[oaicite:8]{index=8}  
+👉 Run locally:
+streamlit run dashboard/app.py
 
 👉 This allows stakeholders to:
 - Monitor demand dynamically
@@ -203,61 +199,6 @@ ORDER BY total_revenue DESC;
 
 ---
 
-## 🧹 Data Cleaning
-Data quality issues were addressed through:
-
-- Removing invalid values:
-  - Negative fares  
-  - Zero or negative trip distance  
-  - Zero or negative duration  
-
-- Filtering extreme outliers:
-  - Distance > 50 miles  
-  - Duration > 180 minutes  
-  - Fare > $200  
-
-This significantly improved statistical stability and removed unrealistic records.
-
----
-
-## 📈 Key Analyses & Insights
-
-### 1️⃣ Peak Demand Analysis
-- Demand increases after 6 AM
-- Peak demand observed around late morning and early afternoon
-### 👉 Insight: Driver supply should increase during daytime hours to meet demand
-
-### 2️⃣ Weekly Demand Trends
-- Highest demand on Friday
-- Lowest demand on Sunday
-### 👉 Insight: Demand is strongly tied to workweek patterns
-
-### 3️⃣ Geographic Concentration
-- Trips are concentrated in a few key zones
-### 👉 Insight: Indicates inefficient driver distribution across regions
-
-### 4️⃣ Payment Behavior
-- Credit card: ~58%
-- Cash: ~42%
-### 👉 Insight: Digital payment dominates → opportunity for targeted promotions
-
-### 5️⃣ Tip Behavior
-- Majority of tips between 10%–30%
-- Many zero-tip cases
-### 👉 Insight: Tipping patterns are consistent but vary by trip context
-
-### 6️⃣ Fare vs Distance
-- Strong positive correlation
-- Increased variance for longer trips
-### 👉 Insight: Pricing influenced by both distance and external factors (traffic, surcharges)
-
-### 7️⃣ Temporal Heatmap
-- Peak demand during weekday daytime
-- Friday consistently high
-### 👉 Insight: Demand is a function of both time and weekday
-
----
-
 ## 🧠 Key Takeaways
 - 🚕 Demand is highly time-dependent (peak hours)
 - 📍 Geographic imbalance suggests inefficient driver allocation
@@ -266,7 +207,7 @@ This significantly improved statistical stability and removed unrealistic record
 
 ---
 
-🚀 Business Impact
+## 🚀 Business Impact
 Based on the analysis:
 - 🚕 Optimize driver allocation → reduce idle time (~15–20% estimated)
 - 📍 Rebalance drivers across high-demand zones
