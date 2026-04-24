@@ -1,5 +1,32 @@
-![Result](outputs/figures/fare_by_hour.png)
+## 📈 Visualizations & Insights
 
+### Revenue vs Fare by Hour
+Revenue reflects total earnings including tips and surcharges, while fare represents base pricing.
+
+![Revenue](outputs/figures/revenue_by_hour.png)
+![Fare](outputs/figures/fare_by_hour.png)
+
+👉 Insight:
+- Revenue peaks during midday and evening hours
+- Difference between revenue and fare indicates tipping behavior and surcharges
+
+---
+
+### Tip by Payment Type
+![Tip](outputs/figures/tip_by_payment.png)
+
+👉 Insight:
+- Credit card users tip significantly more than cash users
+- Suggests opportunity for digital payment incentives
+
+---
+
+### Distance vs Fare Relationship
+![Distance vs Fare](outputs/figures/distance_vs_fare.png)
+
+👉 Insight:
+- Strong positive correlation between distance and fare
+- Variability increases for longer trips → external factors (traffic, pricing rules)
 ---
 
 # 🚕 NYC Taxi Demand Analysis & Driver Allocation Optimization
